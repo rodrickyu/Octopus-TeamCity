@@ -6,3 +6,6 @@
 *.ear
 source/dist
 source/out
+
+# IDEA workspace file - stores personal settings only
+source/.idea/workspace.xml
