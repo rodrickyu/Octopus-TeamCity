@@ -11,4 +11,4 @@ To build the plugin from code:
 
 The TeamCity plugin will be packaged and added to a `/source/dist` folder. 
 
-To edit the code, you'll probably want to install IntelliJ community edition.
+To edit the code, you'll probably want to install IntelliJ community edition. JetBrains provide [instructions for configuring IntelliJ](http://confluence.jetbrains.com/display/TCD7/Bundled+Development+Package) for TeamCity plugin development. 
