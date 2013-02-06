@@ -11,11 +11,12 @@
 
   <target name="package" depends="define.version">
     <package.teamcity.plugin name="${plugin.name}"
-                             server.output="${octopus-server.output.dir}"
-                             agent.output="${octopus-agent.output.dir}"
-                             server.lib.dir="lib" server.lib.includes="*.jar"
-                             plugin.descriptor.file="${basedir}/teamcity-plugin.xml"
-                             plugin.version="${plugin.version}"/>
+         server.output="${octopus-server.output.dir}"
+         common.output="${octopus-common.output.dir}"
+         agent.output="${octopus-agent.output.dir}"
+         server.lib.dir="lib" server.lib.includes="*.jar"
+         plugin.descriptor.file="${basedir}/teamcity-plugin.xml"
+         plugin.version="${plugin.version}"/>
   </target>
 
   <target name="define.version" depends="define.version.if.under.teamcity">
