@@ -61,6 +61,8 @@
     <include name="**/?*.htm"/>
     <include name="**/?*.ftl"/>
     <include name="**/?*.ftl"/>
+    <include name="**/?*.exe"/>
+    <include name="**/?*.exe.config"/>
   </patternset>
   
   <!-- JDK definitions -->
