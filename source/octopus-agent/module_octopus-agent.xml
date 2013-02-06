@@ -37,6 +37,7 @@
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
+    <pathelement location="${octopus-common.output.dir}"/>
   </path>
   
   <path id="octopus-agent.runtime.production.module.classpath">
@@ -45,6 +46,7 @@
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
+    <path refid="octopus-common.runtime.production.module.classpath"/>
   </path>
   
   <path id="octopus-agent.module.classpath">
@@ -54,6 +56,8 @@
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
+    <pathelement location="${octopus-common.testoutput.dir}"/>
+    <pathelement location="${octopus-common.output.dir}"/>
   </path>
   
   <path id="octopus-agent.runtime.module.classpath">
@@ -63,6 +67,7 @@
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
+    <path refid="octopus-common.runtime.module.classpath"/>
   </path>
   
   
@@ -83,7 +88,7 @@
   
   <target name="compile.module.octopus-agent" depends="compile.module.octopus-agent.production,compile.module.octopus-agent.tests" description="Compile module octopus-agent"/>
   
-  <target name="compile.module.octopus-agent.production" description="Compile module octopus-agent; production classes">
+  <target name="compile.module.octopus-agent.production" depends="compile.module.octopus-common" description="Compile module octopus-agent; production classes">
     <mkdir dir="${octopus-agent.output.dir}"/>
     <javac destdir="${octopus-agent.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.octopus-agent}/javac">
       <compilerarg line="${compiler.args.octopus-agent}"/>

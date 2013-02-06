@@ -14,24 +14,12 @@
  * limitations under the License.
  */
 
-import jetbrains.buildServer.agent.Constants;
+package octopus.teamcity.agent.commands;
 
-public class OctopusConstants {
-    public String getServerKey() {
-        return "octopus_host";
-    }
+public interface OctopusCommandBuilder {
+    void setApiKey(String apiKey);
 
-    public String getApiKey() {
-        return Constants.SECURE_PROPERTY_PREFIX + "octopus_apikey";
-    }
+    void setServer(String serverUrl);
 
-    public String getProjectNameKey() {
-        return "octopus_project_name";
-    }
-
-    public String getDeployToKey() {
-        return "octopus_deployto";
-    }
-
-    public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";
+    String buildCommand();
 }

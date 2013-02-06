@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package commands;
+package octopus.teamcity.agent.commands;
 
 public class CreateReleaseCommandBuilder implements OctopusCommandBuilder {
     private String apiKey;

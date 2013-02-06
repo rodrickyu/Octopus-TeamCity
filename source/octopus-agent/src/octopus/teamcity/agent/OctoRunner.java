@@ -1,4 +1,4 @@
-/*
+package octopus.teamcity.agent;/*
  * Copyright 2000-2012 Octopus Deploy Pty. Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import commands.OctopusCommandBuilder;
+import octopus.teamcity.agent.commands.OctopusCommandBuilder;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class OctoRunner {
     private final Object sync = new Object();

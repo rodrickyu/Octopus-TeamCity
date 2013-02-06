@@ -33,20 +33,45 @@
   
   <path id="octopus-server.module.production.classpath">
     <path refid="${module.jdk.classpath.octopus-server}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_third-party.classpath"/>
+    <path refid="library.tomcat.classpath"/>
+    <pathelement location="${octopus-common.output.dir}"/>
   </path>
   
   <path id="octopus-server.runtime.production.module.classpath">
     <pathelement location="${octopus-server.output.dir}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_third-party.classpath"/>
+    <path refid="library.tomcat.classpath"/>
+    <path refid="octopus-common.runtime.production.module.classpath"/>
   </path>
   
   <path id="octopus-server.module.classpath">
     <path refid="${module.jdk.classpath.octopus-server}"/>
     <pathelement location="${octopus-server.output.dir}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_third-party.classpath"/>
+    <path refid="library.tomcat.classpath"/>
+    <pathelement location="${octopus-common.testoutput.dir}"/>
+    <pathelement location="${octopus-common.output.dir}"/>
   </path>
   
   <path id="octopus-server.runtime.module.classpath">
     <pathelement location="${octopus-server.testoutput.dir}"/>
     <pathelement location="${octopus-server.output.dir}"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_third-party.classpath"/>
+    <path refid="library.tomcat.classpath"/>
+    <path refid="octopus-common.runtime.module.classpath"/>
   </path>
   
   
@@ -68,7 +93,7 @@
   
   <target name="compile.module.octopus-server" depends="compile.module.octopus-server.production,compile.module.octopus-server.tests" description="Compile module octopus-server"/>
   
-  <target name="compile.module.octopus-server.production" description="Compile module octopus-server; production classes">
+  <target name="compile.module.octopus-server.production" depends="compile.module.octopus-common" description="Compile module octopus-server; production classes">
     <mkdir dir="${octopus-server.output.dir}"/>
     <javac destdir="${octopus-server.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.octopus-server}/javac">
       <compilerarg line="${compiler.args.octopus-server}"/>

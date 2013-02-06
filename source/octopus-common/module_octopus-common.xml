@@ -33,20 +33,28 @@
   
   <path id="octopus-common.module.production.classpath">
     <path refid="${module.jdk.classpath.octopus-common}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
   </path>
   
   <path id="octopus-common.runtime.production.module.classpath">
     <pathelement location="${octopus-common.output.dir}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
   </path>
   
   <path id="octopus-common.module.classpath">
     <path refid="${module.jdk.classpath.octopus-common}"/>
     <pathelement location="${octopus-common.output.dir}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
   </path>
   
   <path id="octopus-common.runtime.module.classpath">
     <pathelement location="${octopus-common.testoutput.dir}"/>
     <pathelement location="${octopus-common.output.dir}"/>
+    <path refid="library.teamcity_open_api_common.classpath"/>
+    <path refid="library.teamcity_open_api_server.classpath"/>
   </path>
   
   

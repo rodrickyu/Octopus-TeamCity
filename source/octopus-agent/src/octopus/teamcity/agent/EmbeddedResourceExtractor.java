@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import jetbrains.buildServer.log.Loggers;
+package octopus.teamcity.agent;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class EmbeddedResourceExtractor {
     public void extractTo(String destinationPath) throws IOException {

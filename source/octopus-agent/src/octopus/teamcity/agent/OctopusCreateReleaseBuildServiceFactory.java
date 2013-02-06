@@ -1,4 +1,4 @@
-/*
+package octopus.teamcity.agent;/*
  * Copyright 2000-2012 Octopus Deploy Pty. Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,7 +33,7 @@ public class OctopusCreateReleaseBuildServiceFactory implements CommandLineBuild
     private InspectionReporter myInspectionsReporter;
 
     public OctopusCreateReleaseBuildServiceFactory(@NotNull final ArtifactsWatcher artifactsWatcher,
-                                        @NotNull final InspectionReporter inspectionsReporter) {
+                                                   @NotNull final InspectionReporter inspectionsReporter) {
         myArtifactsWatcher = artifactsWatcher;
         myInspectionsReporter = inspectionsReporter;
     }
