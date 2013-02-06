@@ -2,7 +2,7 @@
 <project name="TeamCitySamplePlugin" default="dist">
 
   <property file="build.properties"/>
-  <property name="plugin.name" value="Octpus.TeamCity"/>
+  <property name="plugin.name" value="Octopus.TeamCity"/>
   <property name="javac2.home" value="${basedir}/lib-compile"/>
 
   <import file="teamcity-common.xml"/>
