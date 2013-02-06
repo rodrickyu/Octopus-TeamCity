@@ -14,22 +14,12 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.octo.commands;
+package octopus.teamcity.agent.commands;
 
-public class CreateReleaseCommandBuilder implements OctopusCommandBuilder {
-    private String apiKey;
-    private String serverUrl;
+public interface OctopusCommandBuilder {
+    void setApiKey(String apiKey);
 
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
-    }
+    void setServer(String serverUrl);
 
-    public void setServer(String serverUrl) {
-        this.serverUrl = serverUrl;
-    }
-
-    public String buildCommand() {
-        return "list-environments --server=\"" + serverUrl + "\" --apikey=\"" + apiKey + "\"";
-    }
+    String buildCommand();
 }
-

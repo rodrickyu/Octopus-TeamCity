@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.octo;
+package octopus.teamcity.server.ui;
 
-public class OctoResult {
-    private final String output;
-    private final int exitCode;
+import jetbrains.buildServer.agent.Constants;
 
-    public OctoResult(String output, int exitCode) {
-        this.output = output;
-        this.exitCode = exitCode;
+public class OctopusReleaseConstants {
+    public String getServerKey() {
+        return "octopus_host";
     }
 
-    public String getOutput() {
-        return output;
+    public String getApiKey() {
+        return Constants.SECURE_PROPERTY_PREFIX + "octopus_apikey";
     }
 
-    public int getExitCode() {
-        return exitCode;
+    public String getProjectNameKey() {
+        return "octopus_project_name";
+    }
+
+    public String getDeployToKey() {
+        return "octopus_deployto";
     }
 }

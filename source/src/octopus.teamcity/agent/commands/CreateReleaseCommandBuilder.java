@@ -14,24 +14,22 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.ui;
+package octopus.teamcity.agent.commands;
 
-import jetbrains.buildServer.agent.Constants;
+public class CreateReleaseCommandBuilder implements OctopusCommandBuilder {
+    private String apiKey;
+    private String serverUrl;
 
-public class OctopusReleaseConstants {
-    public String getServerKey() {
-        return "octopus_host";
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 
-    public String getApiKey() {
-        return Constants.SECURE_PROPERTY_PREFIX + "octopus_apikey";
+    public void setServer(String serverUrl) {
+        this.serverUrl = serverUrl;
     }
 
-    public String getProjectNameKey() {
-        return "octopus_project_name";
-    }
-
-    public String getDeployToKey() {
-        return "octopus_deployto";
+    public String buildCommand() {
+        return "list-environments --server=\"" + serverUrl + "\" --apikey=\"" + apiKey + "\"";
     }
 }
+

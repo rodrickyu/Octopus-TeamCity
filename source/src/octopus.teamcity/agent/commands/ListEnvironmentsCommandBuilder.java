@@ -1,4 +1,4 @@
-package octopus.teamcity.octo.commands;
+package octopus.teamcity.agent.commands;
 
 public class ListEnvironmentsCommandBuilder implements OctopusCommandBuilder {
     private String apiKey;

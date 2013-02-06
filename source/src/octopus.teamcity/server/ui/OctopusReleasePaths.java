@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.octo.commands;
+package octopus.teamcity.server.ui;
 
-public interface OctopusCommandBuilder {
-    void setApiKey(String apiKey);
+import org.jetbrains.annotations.NotNull;
 
-    void setServer(String serverUrl);
-
-    String buildCommand();
+public interface OctopusReleasePaths {
+    @NotNull
+    String getControllerPath();
 }

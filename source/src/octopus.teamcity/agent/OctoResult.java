@@ -14,11 +14,22 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.ui;
+package octopus.teamcity.agent;
 
-import org.jetbrains.annotations.NotNull;
+public class OctoResult {
+    private final String output;
+    private final int exitCode;
 
-public interface OctopusReleasePaths {
-    @NotNull
-    String getControllerPath();
+    public OctoResult(String output, int exitCode) {
+        this.output = output;
+        this.exitCode = exitCode;
+    }
+
+    public String getOutput() {
+        return output;
+    }
+
+    public int getExitCode() {
+        return exitCode;
+    }
 }

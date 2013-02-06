@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.octo;
+package octopus.teamcity.agent;
 
-import jetbrains.buildServer.log.Loggers;
-import jetbrains.buildServer.web.openapi.PluginDescriptor;
-import octopus.teamcity.octo.commands.OctopusCommandBuilder;
-import org.jetbrains.annotations.NotNull;
+import octopus.teamcity.agent.commands.OctopusCommandBuilder;
 
 import java.io.*;
 

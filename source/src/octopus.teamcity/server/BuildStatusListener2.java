@@ -14,21 +14,23 @@
  * limitations under the License.
  */
 
-package octopus.teamcity;
+package octopus.teamcity.server;
 
 import jetbrains.buildServer.log.Loggers;
 import jetbrains.buildServer.messages.DefaultMessagesInfo;
 import jetbrains.buildServer.serverSide.*;
 import jetbrains.buildServer.util.EventDispatcher;
-import octopus.teamcity.octo.*;
-import octopus.teamcity.octo.commands.*;
-import octopus.teamcity.ui.*;
+import octopus.teamcity.agent.OctoResult;
+import octopus.teamcity.agent.OctoRunner;
+import octopus.teamcity.agent.commands.CreateReleaseCommandBuilder;
+import octopus.teamcity.agent.commands.ListEnvironmentsCommandBuilder;
+import octopus.teamcity.server.ui.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.util.*;
 
-public class BuildStatusListener {
+public class BuildStatusListener2 {
     private final OctoRunner octo;
 
     public BuildStatusListener(@NotNull final EventDispatcher<BuildServerListener> listener, @NotNull final OctoRunner octo) {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.ui;
+package octopus.teamcity.server.ui;
 
 import jetbrains.buildServer.web.openapi.PluginDescriptor;
 import org.jetbrains.annotations.NotNull;
