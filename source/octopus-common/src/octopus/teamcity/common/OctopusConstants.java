@@ -19,6 +19,8 @@ package octopus.teamcity.common;
 import jetbrains.buildServer.agent.Constants;
 
 public class OctopusConstants {
+    public final static OctopusConstants Instance = new OctopusConstants();
+
     public String getServerKey() {
         return "octopus_host";
     }

@@ -16,10 +16,7 @@
 
 package octopus.teamcity.agent;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 public class EmbeddedResourceExtractor {
     public void extractTo(String destinationPath) throws IOException {
@@ -28,6 +25,10 @@ public class EmbeddedResourceExtractor {
     }
 
     private void extractFile(String resourceName, String destinationName) throws IOException {
+        File file = new File(destinationName);
+        if (file.exists())
+            return;
+
         InputStream is = getClass().getResourceAsStream(resourceName);
         OutputStream os = new FileOutputStream(destinationName, false);
 
