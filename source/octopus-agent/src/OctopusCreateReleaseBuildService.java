@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.agent;
-
 import jetbrains.buildServer.RunBuildException;
 import jetbrains.buildServer.agent.runner.BuildServiceAdapter;
 import jetbrains.buildServer.agent.runner.ProgramCommandLine;

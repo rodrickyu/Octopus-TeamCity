@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.agent;
-
 
 import com.intellij.openapi.diagnostic.Logger;
 import jetbrains.buildServer.agent.AgentBuildRunnerInfo;

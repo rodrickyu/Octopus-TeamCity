@@ -184,7 +184,7 @@
     </javac>
     
     <copy todir="${server.output.dir}">
-      <fileset dir="${module.server.basedir}/resources">
+      <fileset dir="/resources">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>

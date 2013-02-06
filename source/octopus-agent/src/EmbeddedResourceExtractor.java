@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.agent;
-
 import jetbrains.buildServer.log.Loggers;
 
 import java.io.*;

@@ -105,7 +105,7 @@
         <param name="common.jar.path" value="${teamcity.internal.distrib.prep.common}/@{common.jar.name}"/>
       </antcall>
 
-      <!-- copy additional agent files -->
+      <!-- copy additional META-INF files -->
       <mkdir dir="${teamcity.internal.distrib.prep.agent.jars}/@{name}" />
       <copy todir="${teamcity.internal.distrib.prep.agent.jars}/@{name}">
         <fileset dir="${basedir}" excludes="**"/>
@@ -274,7 +274,7 @@
   </target>
 
   <target name="prepare.agent.part" if="agent.needed">
-    <!-- prepare.agent.part -->
+    <!-- prepare.META-INF.part -->
     <mkdir dir="${teamcity.internal.distrib.prep.agent}"/>
     <mkdir dir="${teamcity.internal.distrib.prep.agent.jars}/${name}/lib"/>
     <mkdir dir="${out.unpacked}/agent"/>

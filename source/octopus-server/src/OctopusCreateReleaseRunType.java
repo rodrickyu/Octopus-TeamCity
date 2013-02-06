@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.server;
-
 import jetbrains.buildServer.serverSide.InvalidProperty;
 import jetbrains.buildServer.serverSide.PropertiesProcessor;
 import jetbrains.buildServer.serverSide.RunType;

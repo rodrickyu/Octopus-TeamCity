@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.agent;
-
 public class OctoResult {
     private final String output;
     private final int exitCode;

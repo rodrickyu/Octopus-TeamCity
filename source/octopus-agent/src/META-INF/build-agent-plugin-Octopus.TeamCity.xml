@@ -22,7 +22,7 @@
         default-autowire="constructor"
         >
 
-    <bean class="octopus.teamcity.agent.OctoRunner"/>
-    <bean class="octopus.teamcity.agent.OctopusCreateReleaseBuildServiceFactory"/>
-    <bean class="octopus.teamcity.agent.OctopusCreateReleaseBuildServiceFactory"/>
+    <bean class="OctoRunner"/>
+    <bean class="OctopusCreateReleaseBuildServiceFactory"/>
+    <bean class="OctopusCreateReleaseBuildServiceFactory"/>
 </beans>

@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.agent;
-
-import octopus.teamcity.agent.commands.OctopusCommandBuilder;
+import commands.OctopusCommandBuilder;
 
 import java.io.*;
 
