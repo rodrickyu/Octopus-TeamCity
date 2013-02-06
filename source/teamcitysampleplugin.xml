@@ -75,6 +75,10 @@
     <pathelement location="${path.variable.teamcitydistribution}/devPackage/common-api.jar"/>
     <pathelement location="${path.variable.teamcitydistribution}/devPackage/runtime/runtime-util.jar"/>
   </path>
+
+    <path id="library.teamcity_open_api_agent.classpath">
+        <pathelement location="${path.variable.teamcitydistribution}/devPackage/agent-api.jar"/>
+    </path>
   
   <path id="library.teamcity_open_api_server.classpath">
     <pathelement location="${path.variable.teamcitydistribution}/devPackage/server-api.jar"/>
@@ -118,6 +122,7 @@
     <path refid="library.teamcity_third-party.classpath"/>
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
     <path refid="library.tomcat.classpath"/>
   </path>
   
@@ -126,6 +131,7 @@
     <path refid="library.teamcity_third-party.classpath"/>
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
     <path refid="library.tomcat.classpath"/>
   </path>
   
@@ -134,6 +140,7 @@
     <path refid="library.teamcity_third-party.classpath"/>
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
     <path refid="library.tomcat.classpath"/>
   </path>
   
@@ -143,6 +150,7 @@
     <path refid="library.teamcity_third-party.classpath"/>
     <path refid="library.teamcity_open_api_common.classpath"/>
     <path refid="library.teamcity_open_api_server.classpath"/>
+    <path refid="library.teamcity_open_api_agent.classpath"/>
     <path refid="library.tomcat.classpath"/>
   </path>
   

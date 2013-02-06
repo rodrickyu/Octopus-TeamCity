@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.server.ui;
+package octopus.teamcity.common;
 
 import jetbrains.buildServer.agent.Constants;
 
-public class OctopusReleaseConstants {
+public class OctopusConstants {
     public String getServerKey() {
         return "octopus_host";
     }
@@ -34,4 +34,6 @@ public class OctopusReleaseConstants {
     public String getDeployToKey() {
         return "octopus_deployto";
     }
+
+    public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";
 }

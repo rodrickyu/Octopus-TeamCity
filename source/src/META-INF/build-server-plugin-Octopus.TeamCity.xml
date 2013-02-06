@@ -6,11 +6,5 @@
         default-autowire="constructor"
         >
 
-    <bean class="octopus.teamcity.server.ui.OctopusReleasePathsImpl"/>
-    <bean class="octopus.teamcity.server.ui.OctopusReleaseFeature"/>
-    <bean class="octopus.teamcity.server.ui.OctopusReleaseController"/>
-
-    <bean class="octopus.teamcity.agent.OctoRunner"/>
-
-    <bean class="octopus.teamcity.server.BuildStatusListener2"/>
+    <bean class="octopus.teamcity.server.OctopusCreateReleaseRunType"/>
 </beans>

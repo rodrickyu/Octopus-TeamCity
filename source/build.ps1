@@ -17,6 +17,11 @@ write-output "Copy to TeamCity plugins directory..."
 copy-item .\dist\Octopus.TeamCity.zip -Destination C:\TeamCity\.BuildServer\plugins
 
 write-output "Restart TeamCity service..."
-restart-service -name TeamCity
+$service = 'TeamCity'
+Stop-Service $service
+do { Start-Sleep -Milliseconds 200}
+until ((get-service $service).status -eq 'Stopped')
+
+start-service $service
 
 write-output "Restarted successful!"

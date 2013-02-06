@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.server.ui;
+package octopus.teamcity.server;
 
-import jetbrains.buildServer.serverSide.BuildFeature;
 import jetbrains.buildServer.serverSide.InvalidProperty;
 import jetbrains.buildServer.serverSide.PropertiesProcessor;
+import jetbrains.buildServer.serverSide.RunType;
+import jetbrains.buildServer.serverSide.RunTypeRegistry;
+import jetbrains.buildServer.web.openapi.PluginDescriptor;
+import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,42 +30,34 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OctopusReleaseFeature extends BuildFeature {
-    public static final String FEATURE_TYPE = "octopus.release";
-    private final OctopusReleasePaths myPaths;
+public class OctopusCreateReleaseRunType extends RunType {
+    private final PluginDescriptor pluginDescriptor;
 
-    public OctopusReleaseFeature(@NotNull final OctopusReleasePaths paths) {
-        myPaths = paths;
+    public OctopusCreateReleaseRunType(final RunTypeRegistry runTypeRegistry, final PluginDescriptor pluginDescriptor) {
+        this.pluginDescriptor = pluginDescriptor;
+        runTypeRegistry.registerRunType(this);
     }
 
     @NotNull
     @Override
     public String getType() {
-        return FEATURE_TYPE;
+        return OctopusConstants.CREATE_RELEASE_RUNNER_TYPE;
     }
 
-    @NotNull
     @Override
     public String getDisplayName() {
-        return "Trigger release in Octopus Deploy";
+        return "OctopusDeploy Release";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Where is this used?";
     }
 
     @Nullable
     @Override
-    public String getEditParametersUrl() {
-        return myPaths.getControllerPath();
-    }
-
-    @NotNull
-    @Override
-    public String describeParameters(@NotNull Map<String, String> params) {
-        return "Create release in Octopus Deploy";
-    }
-
-    @Nullable
-    @Override
-    public PropertiesProcessor getParametersProcessor() {
-        final OctopusReleaseConstants c = new OctopusReleaseConstants();
+    public PropertiesProcessor getRunnerPropertiesProcessor() {
+        final OctopusConstants c = new OctopusConstants();
         return new PropertiesProcessor() {
             private void checkNotEmpty(@NotNull final Map<String, String> properties,
                                        @NotNull final String key,
@@ -89,14 +84,20 @@ public class OctopusReleaseFeature extends BuildFeature {
 
     @Nullable
     @Override
-    public Map<String, String> getDefaultParameters() {
-        final Map<String, String> map = new HashMap<String, String>();
-
-        return map;
+    public String getEditRunnerParamsJspFilePath() {
+        return pluginDescriptor.getPluginResourcesPath("editOctopusCreateRelease.jsp");
     }
 
+    @Nullable
     @Override
-    public boolean isMultipleFeaturesPerBuildTypeAllowed() {
-        return true;
+    public String getViewRunnerParamsJspFilePath() {
+        return pluginDescriptor.getPluginResourcesPath("viewOctopusCreateRelease.jsp");
+    }
+
+    @Nullable
+    @Override
+    public Map<String, String> getDefaultRunnerProperties() {
+        final Map<String, String> map = new HashMap<String, String>();
+        return map;
     }
 }
