@@ -28,12 +28,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class OctopusCreateReleaseBuildServiceFactory implements CommandLineBuildServiceFactory, AgentBuildRunnerInfo {
     private static final Logger LOG = Loggers.SERVER;
-
     private final ArtifactsWatcher myArtifactsWatcher;
-    private InspectionReporter myInspectionsReporter;
+    private final InspectionReporter myInspectionsReporter;
 
-    public OctopusCreateReleaseBuildServiceFactory(@NotNull final ArtifactsWatcher artifactsWatcher,
-                                                   @NotNull final InspectionReporter inspectionsReporter) {
+    public OctopusCreateReleaseBuildServiceFactory(
+            @NotNull final ArtifactsWatcher artifactsWatcher,
+            @NotNull final InspectionReporter inspectionsReporter) {
         myArtifactsWatcher = artifactsWatcher;
         myInspectionsReporter = inspectionsReporter;
     }

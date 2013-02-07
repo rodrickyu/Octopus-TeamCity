@@ -37,5 +37,13 @@ public class OctopusConstants {
         return "octopus_deployto";
     }
 
+    public String getCommandLineArgumentsKey() {
+        return "octopus_additionalcommandlinearguments";
+    }
+
+    public String getReleaseNumberKey() {
+        return "octopus_releasenumber";
+    }
+
     public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";
 }
