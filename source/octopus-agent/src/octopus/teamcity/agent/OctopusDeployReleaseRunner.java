@@ -23,11 +23,11 @@ import jetbrains.buildServer.log.Loggers;
 import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 
-public class OctopusCreateReleaseRunner implements AgentBuildRunner {
+public class OctopusDeployReleaseRunner implements AgentBuildRunner {
     private static final Logger LOG = Loggers.SERVER;
     @NotNull
     public BuildProcess createBuildProcess(@NotNull AgentRunningBuild runningBuild, @NotNull BuildRunnerContext context) throws RunBuildException {
-        return new OctopusCreateReleaseBuildProcess(runningBuild, context);
+        return new OctopusDeployReleaseBuildProcess(runningBuild, context);
     }
 
     @NotNull
@@ -35,7 +35,7 @@ public class OctopusCreateReleaseRunner implements AgentBuildRunner {
         return new AgentBuildRunnerInfo() {
             @NotNull
             public String getType() {
-                return OctopusConstants.CREATE_RELEASE_RUNNER_TYPE;
+                return OctopusConstants.DEPLOY_RELEASE_RUNNER_TYPE;
             }
 
             public boolean canRun(@NotNull BuildAgentConfiguration agentConfiguration) {

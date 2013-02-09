@@ -7,7 +7,6 @@
 <jsp:useBean id="keys" class="octopus.teamcity.common.OctopusConstants" />
 <jsp:useBean id="propertiesBean" scope="request" type="jetbrains.buildServer.controllers.BasePropertiesBean"/>
 
-
 <l:settingsGroup title="Octopus Connection">
 <tr>
   <th>Octopus URL:<l:star/></th>
@@ -27,8 +26,7 @@
 </tr>
 </l:settingsGroup>
 
-
-<l:settingsGroup title="Release">
+<l:settingsGroup title="Deployment">
 <tr>
   <th>Project:<l:star/></th>
   <td>
@@ -38,19 +36,15 @@
   </td>
 </tr>
 <tr>
-  <th>Release number:</th>
+  <th>Release number:<l:star/></th>
   <td>
     <props:textProperty name="${keys.releaseNumberKey}" className="longField"/>
     <span class="error" id="error_${keys.releaseNumberKey}"></span>
     <span class="smallNote">The number to use for this release, e.g., <code>1.0.%build_number%</code>.</span>
   </td>
 </tr>
-</l:settingsGroup>
-
-
-<l:settingsGroup title="Deployment">
 <tr>
-  <th>Deploy to:</th>
+  <th>Deploy to:<l:star/></th>
   <td>
     <props:textProperty name="${keys.deployToKey}" className="longField"/>
     <span class="error" id="error_${keys.deployToKey}"></span>

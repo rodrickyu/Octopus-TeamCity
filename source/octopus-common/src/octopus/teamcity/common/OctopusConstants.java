@@ -50,4 +50,5 @@ public class OctopusConstants {
     }
 
     public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";
+    public static final String DEPLOY_RELEASE_RUNNER_TYPE = "octopus.deploy.release";
 }

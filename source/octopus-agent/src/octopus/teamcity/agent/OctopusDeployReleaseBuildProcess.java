@@ -16,21 +16,20 @@
 
 package octopus.teamcity.agent;
 
-import jetbrains.buildServer.agent.AgentRunningBuild;
-import jetbrains.buildServer.agent.BuildRunnerContext;
+import jetbrains.buildServer.agent.*;
 import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-public class OctopusCreateReleaseBuildProcess extends OctopusBuildProcess {
-    protected OctopusCreateReleaseBuildProcess(@NotNull AgentRunningBuild runningBuild, @NotNull BuildRunnerContext context) {
-        super(runningBuild, context);
+public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
+   public OctopusDeployReleaseBuildProcess(@NotNull AgentRunningBuild runningBuild, @NotNull BuildRunnerContext context) {
+       super(runningBuild, context);
     }
 
     @Override
     protected String getLogMessage() {
-        return "Creating Octopus Deploy release";
+        return "Promoting Octopus Deploy release";
     }
 
     @Override
@@ -50,7 +49,7 @@ public class OctopusCreateReleaseBuildProcess extends OctopusBuildProcess {
                 final boolean wait = Boolean.parseBoolean(parameters.get(constants.getWaitForDeployments()));
 
                 StringBuilder builder = new StringBuilder();
-                builder.append("create-release").append(" ");
+                builder.append("deploy-release").append(" ");
                 builder.append("--server=").append(Quote(serverUrl)).append(" ");
                 builder.append("--apikey=").append(masked ? "SECRET" : Quote(apiKey)).append(" ");
                 builder.append("--project=").append(Quote(projectName)).append(" ");

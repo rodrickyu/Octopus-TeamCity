@@ -1,7 +1,11 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Paul">
     <words>
+      <w>apikey</w>
+      <w>deployto</w>
+      <w>enableservicemessages</w>
       <w>octo</w>
+      <w>waitfordeployment</w>
     </words>
   </dictionary>
 </component>
