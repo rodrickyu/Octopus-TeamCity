@@ -22,6 +22,8 @@
       <entry name="?*.htm" />
       <entry name="?*.ftl" />
       <entry name="?*.ftl" />
+      <entry name="?*.exe" />
+      <entry name="?*.config" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">

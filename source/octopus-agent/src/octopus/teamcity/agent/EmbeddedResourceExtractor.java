@@ -16,8 +16,6 @@
 
 package octopus.teamcity.agent;
 
-import jetbrains.buildServer.log.Loggers;
-
 import java.io.*;
 
 public class EmbeddedResourceExtractor {
@@ -27,6 +25,10 @@ public class EmbeddedResourceExtractor {
     }
 
     private void extractFile(String resourceName, String destinationName) throws IOException {
+        File file = new File(destinationName);
+        if (file.exists())
+            return;
+
         InputStream is = getClass().getResourceAsStream(resourceName);
         OutputStream os = new FileOutputStream(destinationName, false);
 

@@ -19,6 +19,8 @@ package octopus.teamcity.common;
 import jetbrains.buildServer.agent.Constants;
 
 public class OctopusConstants {
+    public final static OctopusConstants Instance = new OctopusConstants();
+
     public String getServerKey() {
         return "octopus_host";
     }
@@ -33,6 +35,18 @@ public class OctopusConstants {
 
     public String getDeployToKey() {
         return "octopus_deployto";
+    }
+
+    public String getCommandLineArgumentsKey() {
+        return "octopus_additionalcommandlinearguments";
+    }
+
+    public String getReleaseNumberKey() {
+        return "octopus_releasenumber";
+    }
+
+    public String getWaitForDeployments() {
+        return "octopus_waitfordeployments";
     }
 
     public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";

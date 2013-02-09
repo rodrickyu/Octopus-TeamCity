@@ -14,22 +14,9 @@
  * limitations under the License.
  */
 
-package octopus.teamcity.agent;
+package octopus.teamcity.agent.commands;
 
-public class OctoResult {
-    private final String output;
-    private final int exitCode;
-
-    public OctoResult(String output, int exitCode) {
-        this.output = output;
-        this.exitCode = exitCode;
-    }
-
-    public String getOutput() {
-        return output;
-    }
-
-    public int getExitCode() {
-        return exitCode;
-    }
+public interface OctopusCommandBuilder {
+    String buildCommand();
+    String buildMaskedCommand();
 }
