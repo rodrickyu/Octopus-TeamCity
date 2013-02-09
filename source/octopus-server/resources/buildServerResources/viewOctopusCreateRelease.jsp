@@ -9,5 +9,25 @@
 
 <div class="parameter">
     Octopus URL:
-    <strong><props:displayValue name="keys.serverKey" emptyValue="not specified"/></strong>
+    <strong><props:displayValue name="${keys.serverKey}" emptyValue="not specified"/></strong>
+</div>
+
+<div class="parameter">
+    Project:
+    <strong><props:displayValue name="${keys.projectNameKey}" emptyValue="not specified"/></strong>
+</div>
+
+<div class="parameter">
+    Release number:
+    <strong><props:displayValue name="${keys.releaseNumberKey}" emptyValue="not specified"/></strong>
+</div>
+
+<div class="parameter">
+    Deploy to:
+    <strong><props:displayValue name="${keys.deployToKey}" emptyValue="not specified"/></strong>
+</div>
+
+<div class="parameter">
+    Wait for deployment to complete:
+    <strong><props:displayValue name="${keys.waitForDeployments}" emptyValue="not specified"/></strong>
 </div>

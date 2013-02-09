@@ -45,5 +45,9 @@ public class OctopusConstants {
         return "octopus_releasenumber";
     }
 
+    public String getWaitForDeployments() {
+        return "octopus_waitfordeployments";
+    }
+
     public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";
 }

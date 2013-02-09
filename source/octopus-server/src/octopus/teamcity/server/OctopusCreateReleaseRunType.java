@@ -35,7 +35,7 @@ public class OctopusCreateReleaseRunType extends RunType {
 
     @Override
     public String getDescription() {
-        return "Where is this used?";
+        return "Creates and deploys releases in Octopus Deploy";
     }
 
     @Nullable

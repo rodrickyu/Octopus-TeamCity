@@ -7,6 +7,7 @@
 <jsp:useBean id="keys" class="octopus.teamcity.common.OctopusConstants" />
 <jsp:useBean id="propertiesBean" scope="request" type="jetbrains.buildServer.controllers.BasePropertiesBean"/>
 
+
 <l:settingsGroup title="Octopus Connection">
 <tr>
   <th>Octopus URL:<l:star/></th>
@@ -49,11 +50,19 @@
 
 <l:settingsGroup title="Deployment">
 <tr>
-  <th>Deploy to:<l:star/></th>
+  <th>Deploy to:</th>
   <td>
     <props:textProperty name="${keys.deployToKey}" className="longField"/>
     <span class="error" id="error_${keys.deployToKey}"></span>
     <span class="smallNote">Comma separated list of environments to deploy to. Leave empty to create a release without deploying it.</span>
+  </td>
+</tr>
+<tr>
+  <th>Wait for deployment to complete:</th>
+  <td>
+    <props:checkboxProperty name="${keys.waitForDeployments}" />
+    <span class="error" id="error_${keys.waitForDeployments}"></span>
+    <span class="smallNote">If checked, the build process will only succeed if the deployment is successful.</span>
   </td>
 </tr>
 </l:settingsGroup>

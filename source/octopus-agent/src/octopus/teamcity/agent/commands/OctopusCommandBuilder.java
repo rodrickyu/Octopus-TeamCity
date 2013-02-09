@@ -17,9 +17,6 @@
 package octopus.teamcity.agent.commands;
 
 public interface OctopusCommandBuilder {
-    void setApiKey(String apiKey);
-
-    void setServer(String serverUrl);
-
     String buildCommand();
+    String buildMaskedCommand();
 }
