@@ -20,7 +20,7 @@ import java.io.*;
 
 public class EmbeddedResourceExtractor {
     public void extractTo(String destinationPath) throws IOException {
-        extractFile("/resources/Octo.exe", destinationPath + "\\Octo.exe");
+        extractFile("/resources/octo.exe", destinationPath + "\\Octo.exe");
         extractFile("/resources/Octo.exe.config", destinationPath + "\\Octo.exe.config");
     }
 
