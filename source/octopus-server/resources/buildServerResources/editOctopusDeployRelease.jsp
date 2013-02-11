@@ -40,7 +40,7 @@
   <td>
     <props:textProperty name="${keys.releaseNumberKey}" className="longField"/>
     <span class="error" id="error_${keys.releaseNumberKey}"></span>
-    <span class="smallNote">The number to use for this release, e.g., <code>1.0.%build_number%</code>.</span>
+    <span class="smallNote">The number of the release to deploy, e.g., <code>%octo.releaseNumber%</code> or <code>%build.number%</code>.</span>
   </td>
 </tr>
 <tr>
