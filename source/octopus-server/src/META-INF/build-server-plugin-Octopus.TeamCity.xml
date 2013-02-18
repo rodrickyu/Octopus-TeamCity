@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
         default-autowire="constructor"
         >
-
+    <bean class="octopus.teamcity.server.OctopusBuildRunTypeExtension"/>
     <bean class="octopus.teamcity.server.OctopusCreateReleaseRunType"/>
     <bean class="octopus.teamcity.server.OctopusDeployReleaseRunType"/>
 </beans>

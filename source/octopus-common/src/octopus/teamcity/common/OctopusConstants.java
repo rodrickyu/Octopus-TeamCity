@@ -33,6 +33,14 @@ public class OctopusConstants {
         return "octopus_project_name";
     }
 
+    public String getRunOctoPack() {
+        return "octopus_run_octopack";
+    }
+
+    public String getOctoPackPackageVersion() {
+        return "octopus_octopack_package_version";
+    }
+
     public String getDeployToKey() {
         return "octopus_deployto";
     }
