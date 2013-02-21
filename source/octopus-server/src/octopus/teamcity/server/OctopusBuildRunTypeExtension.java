@@ -21,7 +21,6 @@ public class OctopusBuildRunTypeExtension extends RunTypeExtension {
         Collection<String> items = new HashSet<String>();
         items.add("MSBuild");
         items.add("VS.Solution");
-        items.add("VisualStudio");
         return items;
     }
 

@@ -18,6 +18,7 @@ package octopus.teamcity.agent;
 
 import jetbrains.buildServer.agent.*;
 import jetbrains.buildServer.util.EventDispatcher;
+import jetbrains.buildServer.util.StringUtil;
 import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,16 +40,12 @@ public class OctopusBuildListener extends AgentLifeCycleAdapter {
         String runOctoPackString = params.get(c.getRunOctoPack());
         String octoPackVersion = params.get(c.getOctoPackPackageVersion());
 
-        if (runOctoPackString == null || runOctoPackString.isEmpty())
+        if (StringUtil.isEmptyOrSpaces(runOctoPackString))
+        {
             return;
-
-        boolean runOctoPack = Boolean.parseBoolean(runOctoPackString);
-
-        if (!runOctoPack)
-            return;
+        }
 
         logger.message("Enabling OctoPack");
-
         runner.addSystemProperty("RunOctoPack", "true");
         runner.addSystemProperty("OctoPackPackageVersion", octoPackVersion);
     }

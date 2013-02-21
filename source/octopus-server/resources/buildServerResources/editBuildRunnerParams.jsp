@@ -9,7 +9,7 @@
 
 <l:settingsGroup title="Octopus Packaging">
 <tr>
-  <th>Run OctoPack:</th>
+  <th><label for="${keys.runOctoPack}">Run OctoPack</label>:</th>
   <td>
     <props:checkboxProperty name="${keys.runOctoPack}" />
     <span class="error" id="error_${keys.runOctoPack}"></span>
@@ -17,7 +17,7 @@
   </td>
 </tr>
 <tr>
-  <th>OctoPack package version:</th>
+  <th><label for="${keys.octoPackPackageVersion}">OctoPack package version</label>:</th>
   <td>
     <props:textProperty name="${keys.octoPackPackageVersion}" className="longField"/>
     <span class="error" id="error_${keys.octoPackPackageVersion}"></span>
