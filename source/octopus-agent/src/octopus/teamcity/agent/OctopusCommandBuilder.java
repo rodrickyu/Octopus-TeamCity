@@ -16,6 +16,8 @@
 
 package octopus.teamcity.agent;
 
+import jetbrains.buildServer.util.StringUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +38,10 @@ public abstract class OctopusCommandBuilder {
 
     protected List<String> splitCommaSeparatedValues(String text) {
         List<String> results = new ArrayList<String>();
+        if (text == null || StringUtil.isEmptyOrSpaces(text)) {
+            return results;
+        }
+
         String line = text;
         String[] tokens = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 
