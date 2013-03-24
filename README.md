@@ -1,4 +1,10 @@
-This is an expermental plug-in to trigger deployments in Octopus Deploy from TeamCity. 
+This plug-in allows TeamCity builds to trigger deployments in Octopus Deploy. 
+
+## Get the plugin
+
+Download the plugin from [the Octopus Deploy downloads page](http://octopusdeploy.com/downloads).
+
+Installation and usage instructions are available in [the Octopus Deploy documentation](http://octopusdeploy.com/documentation/integration/teamcity). 
 
 ## Building
 
