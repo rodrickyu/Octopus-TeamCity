@@ -20,8 +20,13 @@ import java.io.*;
 
 public class EmbeddedResourceExtractor {
     public void extractTo(String destinationPath) throws IOException {
-        extractFile("/resources/octo.exe", destinationPath + "\\Octo.exe");
-        extractFile("/resources/Octo.exe.config", destinationPath + "\\Octo.exe.config");
+        ensureDirectory(destinationPath, "1.0");
+        extractFile("/resources/1/0/octo.exe", destinationPath + "\\1.0\\Octo.exe");
+        extractFile("/resources/1/0/Octo.exe.config", destinationPath + "\\1.0\\Octo.exe.config");
+
+        ensureDirectory(destinationPath, "2.0");
+        extractFile("/resources/2/0/Octo.exe", destinationPath + "\\2.0\\Octo.exe");
+        extractFile("/resources/2/0/Octo.exe.config", destinationPath + "\\2.0\\Octo.exe.config");
     }
 
     private void extractFile(String resourceName, String destinationName) throws IOException {
@@ -40,5 +45,14 @@ public class EmbeddedResourceExtractor {
 
         os.close();
         is.close();
+    }
+
+    private void ensureDirectory(String destinationPath, String version) {
+        File extractedTo = new File(destinationPath, version);
+        if (extractedTo.exists())
+            return;
+
+        if (!extractedTo.mkdirs())
+            throw new RuntimeException("Unable to create temp output directory " + extractedTo);
     }
 }

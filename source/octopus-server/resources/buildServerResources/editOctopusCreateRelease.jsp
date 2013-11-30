@@ -7,6 +7,8 @@
 <jsp:useBean id="keys" class="octopus.teamcity.common.OctopusConstants" />
 <jsp:useBean id="propertiesBean" scope="request" type="jetbrains.buildServer.controllers.BasePropertiesBean"/>
 
+<c:set var="selectedOctopusVersion"
+       value="${propertiesBean.properties['octopus_version']}"/>
 
 <l:settingsGroup title="Octopus Connection">
 <tr>
@@ -25,8 +27,26 @@
     <span class="smallNote">Specify Octopus API key. You can get this from your user page in the Octopus web portal.</span>
   </td>
 </tr>
-</l:settingsGroup>
+<tr>
+    <th>Octopus version:<l:star/></th>
+    <td>
+        <props:selectProperty name="${keys.octopusVersion}" multiple="false">
+            <c:set var="selected" value="false"/>
+            <c:forEach var="version" items="${keys.octopusVersions}">
+                <c:set var="selected" value="false"/>
+                <c:if test="${selectedOctopusVersion == version}">
+                    <c:set var="selected" value="true"/>
+                </c:if>
+                <props:option value="${version}"
+                              selected="${selected}"><c:out value="${version}"/></props:option>
+            </c:forEach>
+        </props:selectProperty>
 
+        <span class="error" id="error_${keys.octopusVersion}"></span>
+        <span class="smallNote">Which version of the Octopus Deploy server are you using?</span>
+    </td>
+</tr>
+</l:settingsGroup>
 
 <l:settingsGroup title="Release">
 <tr>

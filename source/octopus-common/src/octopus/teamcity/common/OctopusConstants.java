@@ -29,6 +29,22 @@ public class OctopusConstants {
         return Constants.SECURE_PROPERTY_PREFIX + "octopus_apikey";
     }
 
+    public String getOctopusVersion() {
+        return "octopus_version";
+    }
+
+    public String getVersion1() {
+        return "1.0+";
+    }
+
+    public String getVersion2() {
+        return "2.0+";
+    }
+
+    public String[] getOctopusVersions() {
+        return new String[] { getVersion2(), getVersion1() };
+    }
+
     public String getProjectNameKey() {
         return "octopus_project_name";
     }

@@ -21,9 +21,11 @@ import jetbrains.buildServer.RunBuildException;
 import jetbrains.buildServer.agent.*;
 import jetbrains.buildServer.agent.runner.LoggingProcessListener;
 import jetbrains.buildServer.messages.DefaultMessagesInfo;
+import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
+import java.util.Map;
 
 public abstract class OctopusBuildProcess implements BuildProcess {
     private final AgentRunningBuild runningBuild;
@@ -84,7 +86,10 @@ public abstract class OctopusBuildProcess implements BuildProcess {
 
         try {
             Runtime runtime = Runtime.getRuntime();
-            process = runtime.exec("\"" + new File(extractedTo, "octo.exe").getAbsolutePath() + "\" " + realCommand, null, context.getWorkingDirectory());
+
+            String octopusVersion = getSelectedOctopusVersion();
+
+            process = runtime.exec("\"" + new File(extractedTo, octopusVersion + "\\octo.exe").getAbsolutePath() + "\" " + realCommand, null, context.getWorkingDirectory());
 
             final LoggingProcessListener listener = new LoggingProcessListener(logger);
 
@@ -106,6 +111,23 @@ public abstract class OctopusBuildProcess implements BuildProcess {
             Logger.getInstance(getClass().getName()).error(message, e);
             throw new RunBuildException(message);
         }
+    }
+
+    private String getSelectedOctopusVersion() {
+        final Map<String, String> parameters = getContext().getRunnerParameters();
+        final OctopusConstants constants = OctopusConstants.Instance;
+
+        final String key = constants.getOctopusVersion();
+        if (!parameters.containsKey(key)) {
+            return constants.getVersion2().replace("+", "");
+        }
+
+        final String octopusVersion = parameters.get(constants.getOctopusVersion());
+        if (octopusVersion == null || octopusVersion.length() == 0) {
+            return constants.getVersion2().replace("+", "");
+        }
+
+        return octopusVersion.replace("+", "");
     }
 
     public boolean isInterrupted() {
