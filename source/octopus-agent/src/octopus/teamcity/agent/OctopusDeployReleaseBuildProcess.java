@@ -20,6 +20,7 @@ import jetbrains.buildServer.agent.*;
 import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
@@ -39,7 +40,8 @@ public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
 
         return new OctopusCommandBuilder() {
             @Override
-            protected String buildCommand(boolean masked) {
+            protected String[] buildCommand(boolean masked) {
+                final ArrayList<String> commands = new ArrayList<String>();
                 final String serverUrl = parameters.get(constants.getServerKey());
                 final String apiKey = parameters.get(constants.getApiKey());
                 final String commandLineArguments = parameters.get(constants.getCommandLineArgumentsKey());
@@ -48,30 +50,34 @@ public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
                 final String projectName = parameters.get(constants.getProjectNameKey());
                 final boolean wait = Boolean.parseBoolean(parameters.get(constants.getWaitForDeployments()));
 
-                StringBuilder builder = new StringBuilder();
-                builder.append("deploy-release").append(" ");
-                builder.append("--server=").append(Quote(serverUrl)).append(" ");
-                builder.append("--apikey=").append(masked ? "SECRET" : Quote(apiKey)).append(" ");
-                builder.append("--project=").append(Quote(projectName)).append(" ");
-                builder.append("--enableservicemessages").append(" ");
+                commands.add("deploy-release");
+                commands.add("--server");
+                commands.add(serverUrl);
+                commands.add("--apikey");
+                commands.add(masked ? "SECRET" : apiKey);
+                commands.add("--project");
+                commands.add(projectName);
+                commands.add("--enableservicemessages");
 
                 if (releaseNumber != null && !releaseNumber.isEmpty()) {
-                    builder.append("--version=").append(Quote(releaseNumber)).append(" ");
+                    commands.add("--version");
+                    commands.add(releaseNumber);
                 }
 
                 for (String env : splitCommaSeparatedValues(deployTo)) {
-                    builder.append("--deployto=").append(Quote(env)).append(" ");
+                    commands.add("--deployto");
+                    commands.add(env);
                 }
 
                 if (wait && deployTo != null && !deployTo.isEmpty()) {
-                    builder.append("--waitfordeployment ");
+                    commands.add("--waitfordeployment");
                 }
 
                 if (commandLineArguments != null && !commandLineArguments.isEmpty()) {
-                    builder.append(commandLineArguments);
+                    commands.addAll(splitSpaceSeparatedValues(commandLineArguments));
                 }
 
-                return builder.toString();
+                return commands.toArray(new String[commands.size()]);
             }
         };
     }

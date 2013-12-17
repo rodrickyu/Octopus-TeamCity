@@ -23,8 +23,11 @@ import jetbrains.buildServer.agent.runner.LoggingProcessListener;
 import jetbrains.buildServer.messages.DefaultMessagesInfo;
 import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.util.StringUtils;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public abstract class OctopusBuildProcess implements BuildProcess {
@@ -76,12 +79,12 @@ public abstract class OctopusBuildProcess implements BuildProcess {
     }
 
     private void startOcto(final OctopusCommandBuilder command) throws RunBuildException {
-        String userVisibleCommand = command.buildMaskedCommand();
-        String realCommand = command.buildCommand();
+        String[] userVisibleCommand = command.buildMaskedCommand();
+        String[] realCommand = command.buildCommand();
 
         logger = runningBuild.getBuildLogger();
         logger.activityStarted("Octopus Deploy", DefaultMessagesInfo.BLOCK_TYPE_INDENTATION);
-        logger.message("Running command:   octo.exe " + userVisibleCommand);
+        logger.message("Running command:   octo.exe " + StringUtils.arrayToDelimitedString(userVisibleCommand, " "));
         logger.progressMessage(getLogMessage());
 
         try {
@@ -89,7 +92,11 @@ public abstract class OctopusBuildProcess implements BuildProcess {
 
             String octopusVersion = getSelectedOctopusVersion();
 
-            process = runtime.exec("\"" + new File(extractedTo, octopusVersion + "\\octo.exe").getAbsolutePath() + "\" " + realCommand, null, context.getWorkingDirectory());
+            ArrayList<String> arguments = new ArrayList<String>();
+            arguments.add(new File(extractedTo, octopusVersion + "\\octo.exe").getAbsolutePath());
+            arguments.addAll(Arrays.asList(realCommand));
+
+            process = runtime.exec(arguments.toArray(new String[arguments.size()]), null, context.getWorkingDirectory());
 
             final LoggingProcessListener listener = new LoggingProcessListener(logger);
 
