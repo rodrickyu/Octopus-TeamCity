@@ -4,6 +4,22 @@
 <%@ taglib prefix="l" tagdir="/WEB-INF/tags/layout" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%--
+  ~ Copyright 2000-2012 Octopus Deploy Pty. Ltd.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  --%>
+
 <jsp:useBean id="keys" class="octopus.teamcity.common.OctopusConstants" />
 <jsp:useBean id="propertiesBean" scope="request" type="jetbrains.buildServer.controllers.BasePropertiesBean"/>
 
@@ -55,15 +71,15 @@
   </td>
 </tr>
 <tr>
-  <th>Release number:<l:star/></th>
+  <th>Promote from:<l:star/></th>
   <td>
-    <props:textProperty name="${keys.releaseNumberKey}" className="longField"/>
-    <span class="error" id="error_${keys.releaseNumberKey}"></span>
-    <span class="smallNote">The number of the release to deploy, e.g., <code>latest</code>, <code>%octo.releaseNumber%</code> or <code>%build.number%</code>.</span>
+    <props:textProperty name="${keys.promoteFromKey}" className="longField"/>
+    <span class="error" id="error_${keys.promoteFromKey}"></span>
+    <span class="smallNote">The environment that the release is currently deployed to, e.g., <code>Staging</code>.</span>
   </td>
 </tr>
 <tr>
-  <th>Deploy to:<l:star/></th>
+  <th>Promote to:<l:star/></th>
   <td>
     <props:textProperty name="${keys.deployToKey}" className="longField"/>
     <span class="error" id="error_${keys.deployToKey}"></span>

@@ -16,21 +16,22 @@
 
 package octopus.teamcity.agent;
 
-import jetbrains.buildServer.agent.*;
+import jetbrains.buildServer.agent.AgentRunningBuild;
+import jetbrains.buildServer.agent.BuildRunnerContext;
 import octopus.teamcity.common.OctopusConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
-   public OctopusDeployReleaseBuildProcess(@NotNull AgentRunningBuild runningBuild, @NotNull BuildRunnerContext context) {
+public class OctopusPromoteReleaseBuildProcess extends OctopusBuildProcess {
+   public OctopusPromoteReleaseBuildProcess(@NotNull AgentRunningBuild runningBuild, @NotNull BuildRunnerContext context) {
        super(runningBuild, context);
     }
 
     @Override
     protected String getLogMessage() {
-        return "Deploying Octopus Deploy release";
+        return "Promoting Octopus Deploy release";
     }
 
     @Override
@@ -45,12 +46,12 @@ public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
                 final String serverUrl = parameters.get(constants.getServerKey());
                 final String apiKey = parameters.get(constants.getApiKey());
                 final String commandLineArguments = parameters.get(constants.getCommandLineArgumentsKey());
-                final String releaseNumber = parameters.get(constants.getReleaseNumberKey());
+                final String promoteFrom = parameters.get(constants.getPromoteFromKey());
                 final String deployTo = parameters.get(constants.getDeployToKey());
                 final String projectName = parameters.get(constants.getProjectNameKey());
                 final boolean wait = Boolean.parseBoolean(parameters.get(constants.getWaitForDeployments()));
 
-                commands.add("deploy-release");
+                commands.add("promote-release");
                 commands.add("--server");
                 commands.add(serverUrl);
                 commands.add("--apikey");
@@ -59,12 +60,9 @@ public class OctopusDeployReleaseBuildProcess extends OctopusBuildProcess {
                 commands.add(projectName);
                 commands.add("--enableservicemessages");
 
-                if (releaseNumber != null && !releaseNumber.isEmpty()) {
-                    commands.add("--version");
-                    commands.add(releaseNumber);
-                } else {
-                    commands.add("--version");
-                    commands.add("latest");
+                if (promoteFrom != null && !promoteFrom.isEmpty()) {
+                    commands.add("--from");
+                    commands.add(promoteFrom);
                 }
 
                 for (String env : splitCommaSeparatedValues(deployTo)) {

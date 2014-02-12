@@ -30,10 +30,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OctopusDeployReleaseRunType extends RunType {
+public class OctopusPromoteReleaseRunType extends RunType {
     private final PluginDescriptor pluginDescriptor;
 
-    public OctopusDeployReleaseRunType(final RunTypeRegistry runTypeRegistry, final PluginDescriptor pluginDescriptor) {
+    public OctopusPromoteReleaseRunType(final RunTypeRegistry runTypeRegistry, final PluginDescriptor pluginDescriptor) {
         this.pluginDescriptor = pluginDescriptor;
         runTypeRegistry.registerRunType(this);
     }
@@ -41,17 +41,17 @@ public class OctopusDeployReleaseRunType extends RunType {
     @NotNull
     @Override
     public String getType() {
-        return OctopusConstants.DEPLOY_RELEASE_RUNNER_TYPE;
+        return OctopusConstants.PROMOTE_RELEASE_RUNNER_TYPE;
     }
 
     @Override
     public String getDisplayName() {
-        return "OctopusDeploy: Deploy release";
+        return "OctopusDeploy: Promote release";
     }
 
     @Override
     public String getDescription() {
-        return "Deploys a specific release in Octopus Deploy";
+        return "Promotes a release from one environment to another with Octopus Deploy";
     }
 
     @Nullable
@@ -76,7 +76,7 @@ public class OctopusDeployReleaseRunType extends RunType {
                 checkNotEmpty(p, c.getApiKey(), "API key must be specified", result);
                 checkNotEmpty(p, c.getServerKey(), "Server must be specified", result);
                 checkNotEmpty(p, c.getProjectNameKey(), "Project name must be specified", result);
-                checkNotEmpty(p, c.getReleaseNumberKey(), "Release number must be specified", result);
+                checkNotEmpty(p, c.getPromoteFromKey(), "Environment to promote from must be specified", result);
                 checkNotEmpty(p, c.getDeployToKey(), "Deploy to must be specified", result);
 
                 return result;
@@ -87,13 +87,13 @@ public class OctopusDeployReleaseRunType extends RunType {
     @Nullable
     @Override
     public String getEditRunnerParamsJspFilePath() {
-        return pluginDescriptor.getPluginResourcesPath("editOctopusDeployRelease.jsp");
+        return pluginDescriptor.getPluginResourcesPath("editOctopusPromoteRelease.jsp");
     }
 
     @Nullable
     @Override
     public String getViewRunnerParamsJspFilePath() {
-        return pluginDescriptor.getPluginResourcesPath("viewOctopusDeployRelease.jsp");
+        return pluginDescriptor.getPluginResourcesPath("viewOctopusPromoteRelease.jsp");
     }
 
     @Nullable

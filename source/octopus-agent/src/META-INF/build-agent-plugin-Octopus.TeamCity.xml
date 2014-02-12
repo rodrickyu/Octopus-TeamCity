@@ -24,4 +24,5 @@
     <bean class="octopus.teamcity.agent.OctopusBuildListener" />
     <bean class="octopus.teamcity.agent.OctopusCreateReleaseRunner"/>
     <bean class="octopus.teamcity.agent.OctopusDeployReleaseRunner"/>
+    <bean class="octopus.teamcity.agent.OctopusPromoteReleaseRunner"/>
 </beans>

@@ -30,12 +30,12 @@ public class OctopusCreateReleaseRunType extends RunType {
 
     @Override
     public String getDisplayName() {
-        return "OctopusDeploy: Release";
+        return "OctopusDeploy: Create release";
     }
 
     @Override
     public String getDescription() {
-        return "Creates and deploys releases in Octopus Deploy";
+        return "Creates and, optionally, deploys releases in Octopus Deploy";
     }
 
     @Nullable
