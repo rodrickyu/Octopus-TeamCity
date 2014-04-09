@@ -63,11 +63,10 @@ public abstract class OctopusBuildProcess implements BuildProcess {
         final File tempDirectory = runningBuild.getBuildTempDirectory();
         try {
             extractedTo = new File(tempDirectory, "octo-temp");
-            if (extractedTo.exists())
-                return;
-
-            if (!extractedTo.mkdirs())
-                throw new RuntimeException("Unable to create temp output directory " + extractedTo);
+            if (!extractedTo.exists()) {
+                if (!extractedTo.mkdirs())
+                    throw new RuntimeException("Unable to create temp output directory " + extractedTo);
+            }
 
             EmbeddedResourceExtractor extractor = new EmbeddedResourceExtractor();
             extractor.extractTo(extractedTo.getAbsolutePath());
