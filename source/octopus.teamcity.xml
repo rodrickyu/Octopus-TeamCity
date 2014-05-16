@@ -67,28 +67,28 @@
   
   <!-- JDK definitions -->
   
-  <property name="jdk.bin" value="${jdk.home}/bin"/>
-  <path id="jdk.classpath">
-    <fileset dir="${jdk.home}">
-      <include name="jre8/lib/charsets.jar"/>
-      <include name="jre8/lib/deploy.jar"/>
-      <include name="jre8/lib/javaws.jar"/>
-      <include name="jre8/lib/jce.jar"/>
-      <include name="jre8/lib/jsse.jar"/>
-      <include name="jre8/lib/management-agent.jar"/>
-      <include name="jre8/lib/plugin.jar"/>
-      <include name="jre8/lib/resources.jar"/>
-      <include name="jre8/lib/rt.jar"/>
-      <include name="jre8/lib/ext/dnsns.jar"/>
-      <include name="jre8/lib/ext/localedata.jar"/>
-      <include name="jre8/lib/ext/sunjce_provider.jar"/>
-      <include name="jre8/lib/ext/sunmscapi.jar"/>
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
     </fileset>
   </path>
   
-  <property name="project.jdk.home" value="${jdk.home}"/>
-  <property name="project.jdk.bin" value="${jdk.bin}"/>
-  <property name="project.jdk.classpath" value="jdk.classpath"/>
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
   
   
   <!-- Project Libraries -->
