@@ -70,7 +70,7 @@ public abstract class OctopusBuildProcess implements BuildProcess {
 
             EmbeddedResourceExtractor extractor = new EmbeddedResourceExtractor();
             extractor.extractTo(extractedTo.getAbsolutePath());
-        } catch (IOException e) {
+        } catch (Exception e) {
             final String message = "Unable to create temporary file in " + tempDirectory + " for Octopus: " + e.getMessage();
             Logger.getInstance(getClass().getName()).error(message, e);
             throw new RunBuildException(message);
