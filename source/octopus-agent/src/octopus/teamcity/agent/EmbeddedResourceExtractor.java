@@ -17,9 +17,10 @@
 package octopus.teamcity.agent;
 
 import java.io.*;
+import java.lang.*;
 
 public class EmbeddedResourceExtractor {
-    public void extractTo(String destinationPath) throws IOException {
+    public void extractTo(String destinationPath) throws Exception {
         ensureDirectory(destinationPath, "1.0");
         extractFile("/resources/1/0/octo.exe", destinationPath + "\\1.0\\Octo.exe");
         extractFile("/resources/1/0/Octo.exe.config", destinationPath + "\\1.0\\Octo.exe.config");
@@ -29,22 +30,35 @@ public class EmbeddedResourceExtractor {
         extractFile("/resources/2/0/Octo.exe.config", destinationPath + "\\2.0\\Octo.exe.config");
     }
 
-    private void extractFile(String resourceName, String destinationName) throws IOException {
-        File file = new File(destinationName);
-        if (file.exists())
-            return;
+    private void extractFile(String resourceName, String destinationName) throws Exception {
+        int attempts = 0;
+        while (true) {
+            attempts++;
 
-        InputStream is = getClass().getResourceAsStream(resourceName);
-        OutputStream os = new FileOutputStream(destinationName, false);
+            try {
+                File file = new File(destinationName);
+                if (file.exists())
+                    return;
 
-        byte[] buffer = new byte[4096];
-        int length;
-        while ((length = is.read(buffer)) > 0) {
-            os.write(buffer, 0, length);
+                InputStream is = getClass().getResourceAsStream(resourceName);
+                OutputStream os = new FileOutputStream(destinationName, false);
+
+                byte[] buffer = new byte[4096];
+                int length;
+                while ((length = is.read(buffer)) > 0) {
+                    os.write(buffer, 0, length);
+                }
+
+                os.close();
+                is.close();
+            }
+            catch (Exception ex) {
+                Thread.sleep(4000);
+                if (attempts > 3) {
+                    throw ex;
+                }
+            }
         }
-
-        os.close();
-        is.close();
     }
 
     private void ensureDirectory(String destinationPath, String version) {
