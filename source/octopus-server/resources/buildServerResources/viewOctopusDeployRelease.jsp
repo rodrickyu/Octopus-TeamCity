@@ -28,6 +28,6 @@
 </div>
 
 <div class="parameter">
-    Wait for deployment to complete:
+    Show progress:
     <strong><props:displayValue name="${keys.waitForDeployments}" emptyValue="not specified"/></strong>
 </div>

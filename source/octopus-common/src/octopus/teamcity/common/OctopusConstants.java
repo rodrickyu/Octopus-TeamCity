@@ -75,6 +75,9 @@ public class OctopusConstants {
     public String getWaitForDeployments() {
         return "octopus_waitfordeployments";
     }
+    public String getShowProgress() {
+        return "octopus_progress";
+    }
 
     public static final String CREATE_RELEASE_RUNNER_TYPE = "octopus.create.release";
     public static final String DEPLOY_RELEASE_RUNNER_TYPE = "octopus.deploy.release";

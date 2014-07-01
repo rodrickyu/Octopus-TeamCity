@@ -78,11 +78,11 @@
   </td>
 </tr>
 <tr>
-  <th>Wait for deployment to complete:</th>
+  <th>Show deployment progress:</th>
   <td>
     <props:checkboxProperty name="${keys.waitForDeployments}" />
     <span class="error" id="error_${keys.waitForDeployments}"></span>
-    <span class="smallNote">If checked, the build process will only succeed if the deployment is successful.</span>
+    <span class="smallNote">If checked, the build process will only succeed if the deployment is successful. Output from the deployment will appear in the build output.</span>
   </td>
 </tr>
 </l:settingsGroup>

@@ -72,7 +72,7 @@ public class OctopusCreateReleaseBuildProcess extends OctopusBuildProcess {
                 }
 
                 if (wait && deployTo != null && !deployTo.isEmpty()) {
-                    commands.add("--waitfordeployment");
+                    commands.add("--progress");
                 }
 
                 if (commandLineArguments != null && !commandLineArguments.isEmpty()) {

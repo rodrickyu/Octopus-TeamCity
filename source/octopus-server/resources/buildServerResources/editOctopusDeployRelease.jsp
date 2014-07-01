@@ -71,7 +71,7 @@
   </td>
 </tr>
 <tr>
-  <th>Wait for deployment to complete:</th>
+  <th>Show deployment progress:</th>
   <td>
     <props:checkboxProperty name="${keys.waitForDeployments}" />
     <span class="error" id="error_${keys.waitForDeployments}"></span>
