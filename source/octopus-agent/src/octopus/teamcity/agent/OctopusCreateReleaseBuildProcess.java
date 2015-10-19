@@ -47,7 +47,7 @@ public class OctopusCreateReleaseBuildProcess extends OctopusBuildProcess {
                 final String apiKey = parameters.get(constants.getApiKey());
                 final String commandLineArguments = parameters.get(constants.getCommandLineArgumentsKey());
                 final String releaseNumber = parameters.get(constants.getReleaseNumberKey());
-				final String channelName = parameters.get(constants.getChannelNameKey());
+                final String channelName = parameters.get(constants.getChannelNameKey());
                 final String deployTo = parameters.get(constants.getDeployToKey());
                 final String projectName = parameters.get(constants.getProjectNameKey());
                 final boolean wait = Boolean.parseBoolean(parameters.get(constants.getWaitForDeployments()));
@@ -67,10 +67,10 @@ public class OctopusCreateReleaseBuildProcess extends OctopusBuildProcess {
                     commands.add(releaseNumber);
                 }
 
-				if (channelName != null && !channelName.isEmpty()) {
-					commands.add("--channel");
-					commands.add(channelName);
-				}
+                if (channelName != null && !channelName.isEmpty()) {
+                    commands.add("--channel");
+                    commands.add(channelName);
+                }
 
                 for (String env : splitCommaSeparatedValues(deployTo)) {
                     commands.add("--deployto");
