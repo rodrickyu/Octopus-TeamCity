@@ -75,6 +75,10 @@ public class OctopusConstants {
     public String getReleaseNumberKey() {
         return "octopus_releasenumber";
     }
+	
+	public String getChannelNameKey() {
+		return "octopus_channel_name";
+	}
 
     public String getWaitForDeployments() {
         return "octopus_waitfordeployments";
