@@ -28,7 +28,11 @@ public class EmbeddedResourceExtractor {
         ensureDirectory(destinationPath, "2.0");
         extractFile("/resources/2/0/Octo.exe", destinationPath + "\\2.0\\Octo.exe");
         extractFile("/resources/2/0/Octo.exe.config", destinationPath + "\\2.0\\Octo.exe.config");
-    }
+
+        ensureDirectory(destinationPath, "3.0");
+        extractFile("/resources/3/0/Octo.exe", destinationPath + "\\3.0\\Octo.exe");
+        extractFile("/resources/3/0/Octo.exe.config", destinationPath + "\\3.0\\Octo.exe.config");
+	}
 
     private void extractFile(String resourceName, String destinationName) throws Exception {
         int attempts = 0;
