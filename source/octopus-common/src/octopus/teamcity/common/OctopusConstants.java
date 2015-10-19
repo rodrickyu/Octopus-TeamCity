@@ -40,9 +40,13 @@ public class OctopusConstants {
     public String getVersion2() {
         return "2.0+";
     }
+	
+	public String getVersion3() {
+		return "3.0+";
+	}
 
     public String[] getOctopusVersions() {
-        return new String[] { getVersion2(), getVersion1() };
+        return new String[] { getVersion3(), getVersion2(), getVersion1() };
     }
 
     public String getProjectNameKey() {

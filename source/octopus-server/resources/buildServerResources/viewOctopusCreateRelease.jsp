@@ -23,6 +23,11 @@
 </div>
 
 <div class="parameter">
+    Channel:
+    <strong><props:displayValue name="${keys.channelNameKey}" emptyValue="not specified"/></strong>
+</div>
+
+<div class="parameter">
     Deploy to:
     <strong><props:displayValue name="${keys.deployToKey}" emptyValue="not specified"/></strong>
 </div>
