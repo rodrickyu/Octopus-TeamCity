@@ -125,12 +125,12 @@ public abstract class OctopusBuildProcess implements BuildProcess {
 
         final String key = constants.getOctopusVersion();
         if (!parameters.containsKey(key)) {
-            return constants.getVersion2().replace("+", "");
+            return constants.getVersion3().replace("+", "");
         }
 
         final String octopusVersion = parameters.get(constants.getOctopusVersion());
         if (octopusVersion == null || octopusVersion.length() == 0) {
-            return constants.getVersion2().replace("+", "");
+            return constants.getVersion3().replace("+", "");
         }
 
         return octopusVersion.replace("+", "");

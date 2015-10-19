@@ -65,6 +65,14 @@
     <span class="smallNote">The number to use for this release, e.g., <code>1.0.%build.number%</code>.</span>
   </td>
 </tr>
+<tr>
+  <th>Channel:</th>
+  <td>
+    <props:textProperty name="${keys.channelNameKey}" className="longField"/>
+    <span class="error" id="error_${keys.releaseNumberKey}"></span>
+    <span class="smallNote">The channel to create the release for</span>
+  </td>
+</tr>
 </l:settingsGroup>
 
 
