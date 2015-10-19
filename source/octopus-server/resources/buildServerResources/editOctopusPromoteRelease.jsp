@@ -67,7 +67,7 @@
   <td>
     <props:textProperty name="${keys.projectNameKey}" className="longField"/>
     <span class="error" id="error_${keys.projectNameKey}"></span>
-    <span class="smallNote">Enter the name of the Octopus project to create a release for</span>
+    <span class="smallNote">Enter the name of the Octopus project to promote</span>
   </td>
 </tr>
 <tr>
