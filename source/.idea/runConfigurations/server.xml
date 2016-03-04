@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="TeamCity Tomcat">
+  <configuration default="false" name="server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="TeamCity Tomcat" ALTERNATIVE_JRE_ENABLED="false">
     <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8111/" />
     <option name="BROWSER_ID" value="system" />
     <option name="COMMON_VM_ARGUMENTS" value="-Xmx256m -XX:MaxPermSize=92m -Dlog4j.configuration=file:../conf/teamcity-server-log4j.xml -Dteamcity_logs=../logs/" />
