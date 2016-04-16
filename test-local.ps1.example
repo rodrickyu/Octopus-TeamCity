@@ -1,0 +1,25 @@
+﻿# Copy this file and rename it to test-local.ps1, then make changes to use your own settings
+
+#
+# You'll need to download a Java 6 JDK version and install it (don't use 7 or 8 or newer). The patch version isn't important 
+$JdkHome = "C:\Program Files\Java\jdk1.6.0_45"
+
+#
+# TeamCity directories. First is where you installed TeamCity to. Second is the TeamCity data directory.
+$TeamCityDistribution = "C:\TeamCity"
+$TeamCityData = "C:\ProgramData\JetBrains\TeamCity"
+
+
+Stop-Service TeamCity
+Stop-Service TCBuildAgent
+
+pushd .\source
+
+& ant "-Dteamcity.distribution=$TeamCityDistribution" "-Djdk.home.1.6=$JdkHome"
+Copy-Item ".\dist\Octopus.TeamCity.zip" "$TeamCityData\plugins\Octopus.TeamCity.zip" -Force
+
+popd
+
+Start-Service TeamCity
+Start-Service TCBuildAgent
+

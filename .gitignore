@@ -9,3 +9,4 @@ source/out
 
 # IDEA workspace file - stores personal settings only
 source/.idea/workspace.xml
+test-local.ps1

@@ -22,6 +22,7 @@
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
     <pathelement location="${octopus-common.output.dir}"/>
+    <pathelement location="${path.variable.teamcitydistribution}/buildAgent/lib/agent.jar"/>
   </path>
   
   <path id="octopus-agent.runtime.production.module.classpath">
@@ -31,6 +32,7 @@
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
     <path refid="octopus-common.runtime.production.module.classpath"/>
+    <pathelement location="${path.variable.teamcitydistribution}/buildAgent/lib/agent.jar"/>
   </path>
   
   <path id="octopus-agent.module.classpath">
@@ -42,6 +44,7 @@
     <path refid="library.teamcity_third-party.classpath"/>
     <pathelement location="${octopus-common.testoutput.dir}"/>
     <pathelement location="${octopus-common.output.dir}"/>
+    <pathelement location="${path.variable.teamcitydistribution}/buildAgent/lib/agent.jar"/>
   </path>
   
   <path id="octopus-agent.runtime.module.classpath">
@@ -52,6 +55,7 @@
     <path refid="library.teamcity_open_api_server.classpath"/>
     <path refid="library.teamcity_third-party.classpath"/>
     <path refid="octopus-common.runtime.module.classpath"/>
+    <pathelement location="${path.variable.teamcitydistribution}/buildAgent/lib/agent.jar"/>
   </path>
   
   
